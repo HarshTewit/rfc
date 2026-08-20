@@ -49,21 +49,24 @@ export const home = {
       label: "Fight Club",
       line: "Boxing · MMA · Muay Thai · BJJ — every level welcome.",
       href: "/membership",
-      imageLabel: "FIGHT CLUB",
+      image: "/images/bagwork-kick.webp",
+      imageAlt: "Athlete in red gloves landing a kick on a heavy bag at RFC",
     },
     {
       key: "store",
       label: "Store",
       line: "Hand-picked gear for the serious athlete.",
       href: "/store",
-      imageLabel: "STORE",
+      image: "/images/product-gloves.avif",
+      imageAlt: "RFC Pro Boxing Gloves on a dark background",
     },
     {
       key: "spa",
       label: "Recovery Spa",
       line: "Ice baths, massage, compression. Rest is training.",
       href: "/spa",
-      imageLabel: "SPA",
+      image: "/images/spa1.webp",
+      imageAlt: "RFC recovery spa treatment room",
     },
   ],
   disciplines: ["Boxing", "MMA", "Muay Thai", "BJJ", "Strength"],
@@ -91,8 +94,7 @@ export const membership = {
   },
   schedule: [
     {
-      day: "Monday",
-      short: "Mon",
+      day: "Monday", short: "Mon",
       classes: [
         { time: "6:00 AM", name: "Boxing Fundamentals", coach: "Rajan", duration: "60 min" },
         { time: "12:00 PM", name: "Open Mat BJJ", coach: "Priya", duration: "90 min" },
@@ -100,8 +102,7 @@ export const membership = {
       ],
     },
     {
-      day: "Tuesday",
-      short: "Tue",
+      day: "Tuesday", short: "Tue",
       classes: [
         { time: "6:00 AM", name: "Muay Thai Basics", coach: "Arjun", duration: "60 min" },
         { time: "7:00 PM", name: "Strength & Power", coach: "Vikram", duration: "60 min" },
@@ -109,8 +110,7 @@ export const membership = {
       ],
     },
     {
-      day: "Wednesday",
-      short: "Wed",
+      day: "Wednesday", short: "Wed",
       classes: [
         { time: "6:00 AM", name: "Boxing Sparring", coach: "Rajan", duration: "90 min" },
         { time: "12:00 PM", name: "MMA Technique", coach: "Arjun", duration: "60 min" },
@@ -118,8 +118,7 @@ export const membership = {
       ],
     },
     {
-      day: "Thursday",
-      short: "Thu",
+      day: "Thursday", short: "Thu",
       classes: [
         { time: "6:00 AM", name: "BJJ Fundamentals", coach: "Priya", duration: "60 min" },
         { time: "7:00 PM", name: "Boxing Technique", coach: "Rajan", duration: "60 min" },
@@ -127,8 +126,7 @@ export const membership = {
       ],
     },
     {
-      day: "Friday",
-      short: "Fri",
+      day: "Friday", short: "Fri",
       classes: [
         { time: "6:00 AM", name: "MMA All Levels", coach: "Arjun", duration: "90 min" },
         { time: "12:00 PM", name: "Open Mat BJJ", coach: "Priya", duration: "90 min" },
@@ -136,8 +134,7 @@ export const membership = {
       ],
     },
     {
-      day: "Saturday",
-      short: "Sat",
+      day: "Saturday", short: "Sat",
       classes: [
         { time: "7:00 AM", name: "Fight Camp (All Disciplines)", coach: "Full Roster", duration: "2 hr" },
         { time: "10:00 AM", name: "Kids Boxing", coach: "Rajan", duration: "45 min" },
@@ -145,8 +142,7 @@ export const membership = {
       ],
     },
     {
-      day: "Sunday",
-      short: "Sun",
+      day: "Sunday", short: "Sun",
       classes: [
         { time: "8:00 AM", name: "Open Mat (all arts)", coach: "Open", duration: "2 hr" },
       ],
@@ -158,11 +154,7 @@ export const membership = {
       price: "₹800",
       period: "per session",
       featured: false,
-      features: [
-        "Walk in, no commitment",
-        "Access to any single class",
-        "Gear hire available",
-      ],
+      features: ["Walk in, no commitment", "Access to any single class", "Gear hire available"],
       cta: "Book a session",
     },
     {
@@ -198,25 +190,29 @@ export const membership = {
       name: "Rajan Pillai",
       discipline: "Boxing",
       bio: "Head coach. 12 years on the national circuit, 8 years coaching.",
-      imageLabel: "RAJAN",
+      image: "/images/coach-portrait.webp",
+      imageAlt: "Rajan Pillai, RFC head boxing coach, outdoor portrait",
     },
     {
       name: "Arjun Mehta",
       discipline: "MMA & Muay Thai",
       bio: "ONE Championship veteran. Teaches clinch, striking, and fight IQ.",
-      imageLabel: "ARJUN",
+      image: "/images/highkick.jpg",
+      imageAlt: "Arjun Mehta throwing a high kick during training",
     },
     {
       name: "Priya Nair",
       discipline: "Brazilian Jiu-Jitsu",
       bio: "Purple belt under Draculino. First female BJJ coach in Bangalore.",
-      imageLabel: "PRIYA",
+      image: "/images/fighter-pose.webp",
+      imageAlt: "Priya Nair posed in the RFC training room",
     },
     {
       name: "Vikram Shetty",
       discipline: "Strength & Conditioning",
       bio: "NSCA-certified. Builds the engine every fighter needs.",
-      imageLabel: "VIKRAM",
+      image: "/images/gloves-back.webp",
+      imageAlt: "Athlete from behind with red boxing gloves raised",
     },
   ],
   faqs: [
@@ -249,7 +245,13 @@ export const membership = {
 };
 
 // ─── Store ─────────────────────────────────────────────────────────────────────
-export type Product = { name: string; price: string; category: string };
+export type Product = {
+  name: string;
+  price: string;
+  category: string;
+  image: string;
+  imageAlt: string;
+};
 
 export const STORE_CATEGORIES = ["All", "Gloves", "Wraps", "Apparel", "Gear"] as const;
 export type StoreCategory = (typeof STORE_CATEGORIES)[number];
@@ -261,21 +263,136 @@ export const store = {
   },
   note: "Pickup at the gym or delivery across Bangalore.",
   products: [
-    { name: "RFC Pro Boxing Gloves 12oz", price: "₹3,499", category: "Gloves" },
-    { name: "RFC Sparring Gloves 16oz", price: "₹2,799", category: "Gloves" },
-    { name: "MMA Grappling Gloves", price: "₹1,699", category: "Gloves" },
-    { name: "Cotton Hand Wraps (pair)", price: "₹349", category: "Wraps" },
-    { name: "Elastic Hand Wraps (pair)", price: "₹299", category: "Wraps" },
-    { name: "RFC Training Tee", price: "₹999", category: "Apparel" },
-    { name: "RFC Compression Shorts", price: "₹1,299", category: "Apparel" },
-    { name: "Muay Thai Shin Guards", price: "₹2,199", category: "Gear" },
-    { name: "Speed Skipping Rope", price: "₹499", category: "Gear" },
+    {
+      name: "RFC Pro Boxing Gloves 12oz",
+      price: "₹3,499",
+      category: "Gloves",
+      image: "/images/product-gloves.avif",
+      imageAlt: "RFC Pro Boxing Gloves 12oz on a light background",
+    },
+    {
+      name: "RFC Sparring Gloves 16oz",
+      price: "₹2,799",
+      category: "Gloves",
+      image: "/images/product-gloves.avif",
+      imageAlt: "RFC Sparring Gloves 16oz",
+    },
+    {
+      name: "MMA Grappling Gloves",
+      price: "₹1,699",
+      category: "Gloves",
+      image: "/images/product-gloves.avif",
+      imageAlt: "MMA grappling gloves open-palm style",
+    },
+    {
+      name: "Cotton Hand Wraps (pair)",
+      price: "₹349",
+      category: "Wraps",
+      image: "/images/product-gloves.avif",
+      imageAlt: "Cotton hand wraps in traditional style",
+    },
+    {
+      name: "Elastic Hand Wraps (pair)",
+      price: "₹299",
+      category: "Wraps",
+      image: "/images/product-gloves.avif",
+      imageAlt: "Elastic hand wraps for boxing training",
+    },
+    {
+      name: "RFC Training Tee",
+      price: "₹999",
+      category: "Apparel",
+      image: "/images/product-tee.jpeg",
+      imageAlt: "RFC Training Tee in dark colourway",
+    },
+    {
+      name: "RFC Compression Shorts",
+      price: "₹1,299",
+      category: "Apparel",
+      image: "/images/product-trunks.jpg",
+      imageAlt: "RFC Compression Shorts, athletic cut",
+    },
+    {
+      name: "Muay Thai Shin Guards",
+      price: "₹2,199",
+      category: "Gear",
+      image: "/images/product-gloves.avif",
+      imageAlt: "Muay Thai shin guards for sparring",
+    },
+    {
+      name: "Speed Skipping Rope",
+      price: "₹499",
+      category: "Gear",
+      image: "/images/product-gloves.avif",
+      imageAlt: "Speed skipping rope for boxing conditioning",
+    },
   ] as Product[],
 };
 
 // ─── Spa ─────────────────────────────────────────────────────────────────────
 export const spa = {
-  headline: "Recovery Spa",
-  sub: "Rest harder. Train harder.",
-  services: [] as { name: string; duration: string; price: string }[],
+  hero: {
+    headline: "Recovery\nSpa",
+    sub: "Rest is training. Treat it that way.",
+  },
+  services: [
+    {
+      name: "Sports Massage",
+      duration: "60 min",
+      price: "₹2,500",
+      line: "Deep tissue and trigger-point release. Your muscles will thank you the next morning.",
+    },
+    {
+      name: "Ice Bath",
+      duration: "15 min",
+      price: "₹800",
+      line: "Cold immersion to cut inflammation and accelerate recovery between sessions.",
+    },
+    {
+      name: "Infrared Sauna",
+      duration: "30 min",
+      price: "₹1,200",
+      line: "Flush toxins, ease soreness. The oldest recovery tool, upgraded.",
+    },
+    {
+      name: "Physiotherapy",
+      duration: "45 min",
+      price: "₹3,500",
+      line: "Assessment and treatment of training injuries by a certified sports physio.",
+    },
+    {
+      name: "Cupping Therapy",
+      duration: "45 min",
+      price: "₹1,800",
+      line: "Myofascial decompression used by combat athletes and Olympic teams worldwide.",
+    },
+    {
+      name: "Compression Boots",
+      duration: "30 min",
+      price: "₹600",
+      line: "Sequential air compression to clear lactate from the legs. Passive, powerful.",
+    },
+  ],
+  whyRecover: [
+    {
+      icon: "wave" as const,
+      headline: "Less soreness",
+      body: "Targeted therapy clears lactate and reduces DOMS so your next session starts clean.",
+    },
+    {
+      icon: "shield" as const,
+      headline: "Fewer injuries",
+      body: "Consistent recovery keeps connective tissue healthy and the body in balance.",
+    },
+    {
+      icon: "cycle" as const,
+      headline: "Train more",
+      body: "Athletes who recover properly can train 4–5 days a week instead of 2–3.",
+    },
+  ],
+  cta: {
+    headline: "Book your first session.",
+    sub: "Recovery is training. Start now.",
+    ctaLabel: "Book on WhatsApp",
+  },
 };
