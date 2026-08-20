@@ -186,7 +186,7 @@ export default function MembershipPage() {
                       aria-expanded={isOpen}
                       className="w-full flex items-start justify-between gap-4 py-5 text-left min-h-[56px]"
                     >
-                      <span className="font-body text-sm md:text-base text-off-white/90 font-medium">{faq.q}</span>
+                      <span className="font-body text-sm md:text-base text-off-white font-medium">{faq.q}</span>
                       <span className="shrink-0 font-body text-off-white/35 text-xl mt-0.5" aria-hidden>{isOpen ? "−" : "+"}</span>
                     </button>
                     {isOpen && (

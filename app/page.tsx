@@ -44,7 +44,7 @@ export default function HomePage() {
           <h1 className="font-display text-[clamp(4.5rem,20vw,11rem)] leading-[0.86] text-off-white whitespace-pre-line tracking-tight">
             {home.hero.headline}
           </h1>
-          <p className="mt-5 font-body text-sm md:text-base text-off-white/65 max-w-sm md:max-w-md leading-relaxed">
+          <p className="mt-5 font-body text-sm md:text-base text-off-white max-w-sm md:max-w-md leading-relaxed">
             {home.hero.sub}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -70,21 +70,31 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/10">
             {home.pillars.map((p) =>
               p.solid ? (
-                /* Spa pillar — amber solid block, type-led */
+                /* Spa pillar — photo with amber overlay */
                 <Link
                   key={p.key}
                   href={p.href}
                   className="group relative bg-[#C8922B] overflow-hidden flex flex-col aspect-[3/4]"
                 >
-                  <div className="flex-1 p-6 md:p-8 flex flex-col justify-end">
+                  {/* Spa photo underneath amber tint */}
+                  <Image
+                    src="/images/spa2.webp"
+                    alt="RFC recovery spa"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
+                  {/* Amber colour overlay — gives branded feel while letting photo breathe */}
+                  <div className="absolute inset-0 bg-[#C8922B]/80" />
+                  <div className="relative z-10 flex-1 p-6 md:p-8 flex flex-col justify-end">
                     <p className="font-display text-[clamp(2rem,5vw,3.5rem)] text-[#1C1A17] leading-none">
                       Recovery<br />Spa
                     </p>
-                    <p className="font-body text-xs text-[#1C1A17]/65 mt-3 max-w-[200px] leading-relaxed">
+                    <p className="font-body text-xs text-[#1C1A17]/70 mt-3 max-w-[200px] leading-relaxed">
                       {p.line}
                     </p>
                   </div>
-                  <span className="absolute top-5 right-5 font-display text-[#1C1A17]/60 text-xl group-hover:translate-x-1 transition-transform">
+                  <span className="absolute top-5 right-5 z-10 font-display text-[#1C1A17]/60 text-xl group-hover:translate-x-1 transition-transform">
                     →
                   </span>
                 </Link>
