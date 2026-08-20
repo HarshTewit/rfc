@@ -2,7 +2,7 @@
 
 // ─── WhatsApp ────────────────────────────────────────────────────────────────
 export const wa = {
-  number: "919876543210",
+  number: "919606972238",
   messages: {
     firstSession: "Hi, I'd like to book my first free session at RFC.",
     membership: "Hi, I'm interested in an RFC membership. Can you share the details?",
@@ -34,7 +34,7 @@ export const footer = {
   phone: "+91 98765 43210",
   instagram: "@revivedfightclub",
   instagramUrl: "https://instagram.com/revivedfightclub",
-  tagline: "Revived Fight Club — Bangalore's premier combat-sports gym.",
+  tagline: "Revive Fight Club — Bangalore's premier combat-sports gym.",
 };
 
 // ─── Home ─────────────────────────────────────────────────────────────────────
@@ -44,7 +44,7 @@ export type Pillar =
 
 export const home = {
   hero: {
-    headline: "Revived\nFight\nClub",
+    headline: "Revive\nFight\nClub",
     sub: "Bangalore's home of boxing, Muay Thai, BJJ, and MMA.",
     cta1: { label: "Join the club", href: "/membership" },
     cta2: { label: "Book recovery", href: "/spa" },
@@ -114,49 +114,49 @@ export const membership = {
     {
       day: "Monday", short: "Mon",
       classes: [
-        { time: "6:00 AM", name: "Boxing Fundamentals", coach: "Rajan", duration: "60 min" },
-        { time: "12:00 PM", name: "Open Mat BJJ", coach: "Priya", duration: "90 min" },
-        { time: "7:00 PM", name: "MMA Conditioning", coach: "Arjun", duration: "60 min" },
+        { time: "6:00 AM", name: "Boxing Fundamentals", coach: "Lorem", duration: "60 min" },
+        { time: "12:00 PM", name: "Open Mat BJJ", coach: "Dolor", duration: "90 min" },
+        { time: "7:00 PM", name: "MMA Conditioning", coach: "Ipsum", duration: "60 min" },
       ],
     },
     {
       day: "Tuesday", short: "Tue",
       classes: [
-        { time: "6:00 AM", name: "Muay Thai Basics", coach: "Arjun", duration: "60 min" },
-        { time: "7:00 PM", name: "Strength & Power", coach: "Vikram", duration: "60 min" },
-        { time: "8:15 PM", name: "BJJ Drilling", coach: "Priya", duration: "60 min" },
+        { time: "6:00 AM", name: "Muay Thai Basics", coach: "Ipsum", duration: "60 min" },
+        { time: "7:00 PM", name: "Strength & Power", coach: "Amet", duration: "60 min" },
+        { time: "8:15 PM", name: "BJJ Drilling", coach: "Dolor", duration: "60 min" },
       ],
     },
     {
       day: "Wednesday", short: "Wed",
       classes: [
-        { time: "6:00 AM", name: "Boxing Sparring", coach: "Rajan", duration: "90 min" },
-        { time: "12:00 PM", name: "MMA Technique", coach: "Arjun", duration: "60 min" },
-        { time: "7:00 PM", name: "Muay Thai Advanced", coach: "Arjun", duration: "60 min" },
+        { time: "6:00 AM", name: "Boxing Sparring", coach: "Lorem", duration: "90 min" },
+        { time: "12:00 PM", name: "MMA Technique", coach: "Ipsum", duration: "60 min" },
+        { time: "7:00 PM", name: "Muay Thai Advanced", coach: "Ipsum", duration: "60 min" },
       ],
     },
     {
       day: "Thursday", short: "Thu",
       classes: [
-        { time: "6:00 AM", name: "BJJ Fundamentals", coach: "Priya", duration: "60 min" },
-        { time: "7:00 PM", name: "Boxing Technique", coach: "Rajan", duration: "60 min" },
-        { time: "8:15 PM", name: "Functional Strength", coach: "Vikram", duration: "45 min" },
+        { time: "6:00 AM", name: "BJJ Fundamentals", coach: "Dolor", duration: "60 min" },
+        { time: "7:00 PM", name: "Boxing Technique", coach: "Lorem", duration: "60 min" },
+        { time: "8:15 PM", name: "Functional Strength", coach: "Amet", duration: "45 min" },
       ],
     },
     {
       day: "Friday", short: "Fri",
       classes: [
-        { time: "6:00 AM", name: "MMA All Levels", coach: "Arjun", duration: "90 min" },
-        { time: "12:00 PM", name: "Open Mat BJJ", coach: "Priya", duration: "90 min" },
-        { time: "7:00 PM", name: "Boxing Fitness", coach: "Rajan", duration: "60 min" },
+        { time: "6:00 AM", name: "MMA All Levels", coach: "Ipsum", duration: "90 min" },
+        { time: "12:00 PM", name: "Open Mat BJJ", coach: "Dolor", duration: "90 min" },
+        { time: "7:00 PM", name: "Boxing Fitness", coach: "Lorem", duration: "60 min" },
       ],
     },
     {
       day: "Saturday", short: "Sat",
       classes: [
         { time: "7:00 AM", name: "Fight Camp (All Disciplines)", coach: "Full Roster", duration: "2 hr" },
-        { time: "10:00 AM", name: "Kids Boxing", coach: "Rajan", duration: "45 min" },
-        { time: "12:00 PM", name: "Strength & Conditioning", coach: "Vikram", duration: "60 min" },
+        { time: "10:00 AM", name: "Kids Boxing", coach: "Lorem", duration: "45 min" },
+        { time: "12:00 PM", name: "Strength & Conditioning", coach: "Amet", duration: "60 min" },
       ],
     },
     {
@@ -205,32 +205,32 @@ export const membership = {
   ],
   coaches: [
     {
-      name: "Rajan Pillai",
+      name: "A. Lorem",
       discipline: "Boxing",
       line: "Head coach. 12 years on the national circuit, 8 years coaching.",
       image: "/images/coach-portrait.webp",
-      imageAlt: "Rajan Pillai, RFC head boxing coach, outdoor portrait",
+      imageAlt: "RFC head boxing coach, outdoor portrait",
     },
     {
-      name: "Arjun Mehta",
+      name: "B. Ipsum",
       discipline: "Muay Thai & MMA",
-      line: "ONE Championship veteran. Teaches clinch, striking, and fight IQ.",
+      line: "Regional championship veteran. Teaches clinch, striking, and fight IQ.",
       image: "/images/bagwork-punch.webp",
-      imageAlt: "Arjun Mehta throwing a powerful punch at a heavy bag",
+      imageAlt: "RFC Muay Thai coach throwing a powerful punch at a heavy bag",
     },
     {
-      name: "Priya Nair",
+      name: "C. Dolor",
       discipline: "Brazilian Jiu-Jitsu",
-      line: "Purple belt under Draculino. First female BJJ coach in Bangalore.",
+      line: "Purple belt. Specialist in fundamentals and competition prep.",
       image: "/images/fighter-pose.webp",
-      imageAlt: "Priya Nair posed in the empty RFC training room",
+      imageAlt: "RFC BJJ coach posed in the empty training room",
     },
     {
-      name: "Vikram Shetty",
+      name: "D. Amet",
       discipline: "Strength & Conditioning",
       line: "NSCA-certified. Builds the engine every fighter needs.",
       image: "/images/highkick.jpg",
-      imageAlt: "Vikram Shetty demonstrating a high kick during training",
+      imageAlt: "RFC S&C coach demonstrating a high kick during training",
     },
   ],
   faqs: [

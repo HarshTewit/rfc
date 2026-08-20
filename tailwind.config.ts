@@ -8,15 +8,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        base: "var(--color-base)",
-        surface: "var(--color-surface)",
-        "off-white": "var(--color-off-white)",
-        accent: "var(--color-accent)",
-        "accent-hover": "var(--color-accent-hover)",
+        base: "#0A0A0B",
+        surface: "#111113",
+        "off-white": "#F5F3EF",
+        accent: "#C1121F",
+        "accent-hover": "#A00E19",
         // spa
-        "spa-bg": "var(--color-spa-bg)",
-        "spa-ink": "var(--color-spa-ink)",
-        "spa-accent": "var(--color-spa-accent)",
+        "spa-bg": "#EDE7DD",
+        "spa-ink": "#1C1A17",
+        "spa-accent": "#C8922B",
       },
       fontFamily: {
         display: ["var(--font-anton)", "Impact", "sans-serif"],

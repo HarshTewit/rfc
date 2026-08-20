@@ -58,7 +58,7 @@ export default function Footer() {
 
       <div className="border-t border-white/5 py-4 text-center">
         <p className="font-body text-xs text-off-white/20">
-          &copy; {new Date().getFullYear()} Revived Fight Club. All rights reserved.
+          &copy; {new Date().getFullYear()} Revive Fight Club. All rights reserved.
         </p>
       </div>
     </footer>

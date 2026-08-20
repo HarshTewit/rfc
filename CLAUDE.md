@@ -1,5 +1,5 @@
 ## Project
-Marketing site for Revived Fight Club (RFC), a Bangalore combat-sports gym.
+Marketing site for Revive Fight Club (RFC), a Bangalore combat-sports gym.
 Four routes: / (home), /membership, /store, /spa
 Static site. No database, no auth, no CMS, no checkout in v1.
 

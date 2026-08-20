@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import FadeUp from "@/app/components/FadeUp";
 import { spa, wa, waLink } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Recovery Spa | Revived Fight Club",
+  title: "Recovery Spa | Revive Fight Club",
   description:
     "Sports massage, ice bath, sauna, steam, physio, cupping. Recovery at RFC, Bangalore.",
   openGraph: {
-    title: "Recovery Spa | Revived Fight Club",
+    title: "Recovery Spa | Revive Fight Club",
     description: "Rest is training. Treat it that way — RFC Recovery Spa, Bangalore.",
   },
 };
@@ -83,26 +84,24 @@ export default function SpaPage() {
      */
     <div className="spa-theme">
 
-      {/* ── 1. Hero ── type on sand, no image ──────────────────────────── */}
-      <section id="hero" className="px-4 pt-16 pb-14 md:pt-24 md:pb-20 md:px-10 max-w-7xl mx-auto">
-        {/*
-         * TODO: Hero photo option — if you later want photography here,
-         * add a full-bleed image block above this section:
-         *
-         * <div className="relative h-[50vh] overflow-hidden mb-12">
-         *   <Image
-         *     src="/images/spa-hero.webp"
-         *     alt="RFC spa treatment room — warm lighting, clean surfaces"
-         *     fill className="object-cover"
-         *     priority
-         *   />
-         *   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#EDE7DD]" />
-         * </div>
-         *
-         * Suggested shot: wide, warm-toned treatment room, portrait or landscape.
-         */}
+      {/* ── 1. Hero ── full-bleed image fading into sand ───────────────── */}
+      <section id="hero">
+        {/* Hero photo — gradient fades into the sand background below */}
+        <div className="relative h-[52vh] min-h-[300px] overflow-hidden">
+          <Image
+            src="/images/spa1.webp"
+            alt="RFC recovery spa — warm treatment room"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#EDE7DD]/10 via-transparent to-[#EDE7DD]" />
+        </div>
+
+        <div className="px-4 pt-8 pb-14 md:pt-10 md:pb-20 md:px-10 max-w-7xl mx-auto">
         <p className="font-body text-xs uppercase tracking-[0.35em] text-[#1C1A17]/35 mb-8">
-          Revived Fight Club
+          Revive Fight Club
         </p>
         <h1 className="font-display text-[clamp(4rem,16vw,10rem)] leading-[0.86] text-[#1C1A17] whitespace-pre-line">
           {spa.hero.headline}
@@ -117,6 +116,7 @@ export default function SpaPage() {
         <p className="mt-4 font-body text-xs text-[#1C1A17]/35 uppercase tracking-widest">
           {spa.hero.rule}
         </p>
+        </div>
       </section>
 
       {/* ── 2. Services ─────────────────────────────────────────────────── */}
@@ -125,15 +125,15 @@ export default function SpaPage() {
           <div className="max-w-7xl mx-auto">
             <h2 className="font-display text-3xl md:text-5xl text-[#1C1A17] mb-10">Services</h2>
 
-            {/*
-             * TODO: Optional section photo — a 16:9 image above or beside
-             * the services list would add context. Suggested: therapist at
-             * work, soft-focus background, warm amber tones.
-             *
-             * <div className="relative aspect-video mb-10 overflow-hidden">
-             *   <Image src="/images/spa-services.webp" alt="..." fill className="object-cover" />
-             * </div>
-             */}
+            <div className="relative aspect-video mb-10 overflow-hidden">
+              <Image
+                src="/images/spa2.webp"
+                alt="RFC spa — therapy session in progress"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 80vw"
+              />
+            </div>
 
             <ul className="border-t border-[#1C1A17]/10">
               {spa.services.map((svc) => (
@@ -177,18 +177,23 @@ export default function SpaPage() {
           <div className="max-w-7xl mx-auto">
             <h2 className="font-display text-3xl md:text-5xl text-[#1C1A17] mb-12">Why recover?</h2>
 
-            {/*
-             * TODO: Optional 3-up image row here — one photo per recovery point.
-             * Suggested aspect: 1:1 square, subjects: ice bath plunge,
-             * massage in progress, athlete stretching.
-             *
-             * <div className="grid grid-cols-3 gap-2 mb-12">
-             *   <div className="aspect-square relative overflow-hidden">
-             *     <Image src="/images/spa-ice.webp" alt="Ice bath" fill className="object-cover" />
-             *   </div>
-             *   ...
-             * </div>
-             */}
+            <div className="grid grid-cols-3 gap-px mb-12 bg-[#1C1A17]/10">
+              {[
+                { src: "/images/spa1.webp", alt: "Recovery treatment at RFC spa" },
+                { src: "/images/spa2.webp", alt: "Massage in progress at RFC spa" },
+                { src: "/images/spa3.webp", alt: "Post-session recovery at RFC spa" },
+              ].map((img) => (
+                <div key={img.src} className="aspect-square relative overflow-hidden bg-[#EDE7DD]">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 33vw, 25vw"
+                  />
+                </div>
+              ))}
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
               {spa.whyRecover.map((point) => {

@@ -150,6 +150,7 @@ export default function StorePage() {
                             setSelectedSizes((prev) => ({ ...prev, [product.name]: e.target.value }))
                           }
                           aria-label={`Size for ${product.name}`}
+                          style={{ colorScheme: "dark" }}
                           className="mt-3 w-full bg-surface border border-white/10 text-off-white/70 text-xs py-2.5 px-3 font-body uppercase tracking-wider appearance-none cursor-pointer hover:border-white/25 transition-colors"
                         >
                           {product.sizes.map((s) => (

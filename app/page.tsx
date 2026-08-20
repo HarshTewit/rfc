@@ -6,10 +6,10 @@ import FadeUp from "./components/FadeUp";
 import { home, wa, waLink } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Revived Fight Club | Bangalore Combat Sports",
+  title: "Revive Fight Club | Bangalore Combat Sports",
   description: "Bangalore's home of boxing, Muay Thai, BJJ, and MMA. First session free.",
   openGraph: {
-    title: "Revived Fight Club",
+    title: "Revive Fight Club",
     description: "Bangalore's premier combat-sports gym.",
     images: [{ url: "/images/sparring-hero.webp" }],
   },
@@ -26,7 +26,7 @@ export default function HomePage() {
             src="/images/sparring-hero.webp"
             alt="Two RFC fighters sparring in the ring with the RFC gym banner in the background"
             fill
-            className="object-cover object-top animate-ken-burns"
+            className="object-cover object-center animate-ken-burns"
             priority
             sizes="100vw"
           />
@@ -37,14 +37,14 @@ export default function HomePage() {
 
         {/* Precise composition gradients */}
         <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/50 to-transparent z-[3]" />
-        <div className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black via-black/70 to-transparent z-[3]" />
+        <div className="absolute inset-x-0 bottom-0 h-[80%] bg-gradient-to-t from-black via-black/80 to-transparent z-[3]" />
 
         {/* Hero content */}
         <div className="relative z-[4] w-full px-4 pb-12 md:pb-20 md:px-10 max-w-7xl mx-auto">
           <h1 className="font-display text-[clamp(4.5rem,20vw,11rem)] leading-[0.86] text-off-white whitespace-pre-line tracking-tight">
             {home.hero.headline}
           </h1>
-          <p className="mt-5 font-body text-sm md:text-base text-off-white/65 max-w-xs md:max-w-sm leading-relaxed">
+          <p className="mt-5 font-body text-sm md:text-base text-off-white/65 max-w-sm md:max-w-md leading-relaxed">
             {home.hero.sub}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -211,26 +211,24 @@ export default function HomePage() {
       </FadeUp>
 
       {/* ── 6. CTA Band ─────────────────────────────────────────────────── */}
-      <FadeUp>
-        <section id="cta" className="bg-accent py-16 md:py-20 px-4 md:px-10">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-            <div>
-              <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)] text-off-white leading-none">
-                {home.ctaBand.headline}
-              </h2>
-              <p className="font-body text-sm text-off-white/70 mt-3">{home.ctaBand.sub}</p>
-            </div>
-            <a
-              href={waLink(wa.messages.firstSession)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 inline-block bg-off-white text-[#0A0A0B] px-8 py-4 font-body text-xs uppercase tracking-widest hover:bg-off-white/90 transition-colors"
-            >
-              {home.ctaBand.cta}
-            </a>
+      <section id="cta" className="bg-accent py-16 md:py-20 px-4 md:px-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div>
+            <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)] text-off-white leading-none">
+              {home.ctaBand.headline}
+            </h2>
+            <p className="font-body text-sm text-off-white/70 mt-3">{home.ctaBand.sub}</p>
           </div>
-        </section>
-      </FadeUp>
+          <a
+            href={waLink(wa.messages.firstSession)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-block bg-off-white text-[#0A0A0B] px-8 py-4 font-body text-xs uppercase tracking-widest hover:bg-off-white/90 transition-colors"
+          >
+            {home.ctaBand.cta}
+          </a>
+        </div>
+      </section>
     </>
   );
 }

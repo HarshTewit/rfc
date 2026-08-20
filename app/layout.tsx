@@ -19,12 +19,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://revivedfightclub.in"),
-  title: "Revived Fight Club | Bangalore Combat Sports",
+  title: "Revive Fight Club | Bangalore Combat Sports",
   description:
     "Boxing, Muay Thai, BJJ and MMA training in Bangalore. Join RFC — the city's premier combat-sports gym.",
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "Revived Fight Club",
+    title: "Revive Fight Club",
     description: "Bangalore's premier combat-sports gym.",
     images: [{ url: "/images/sparring-hero.webp" }],
     type: "website",
