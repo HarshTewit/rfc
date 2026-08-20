@@ -24,7 +24,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-body text-sm uppercase tracking-widest text-off-white/70 hover:text-off-white transition-colors duration-150"
+              className="font-body text-sm uppercase tracking-widest text-off-white hover:text-off-white transition-colors duration-150"
             >
               {link.label}
             </Link>
@@ -57,7 +57,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block px-4 py-4 font-body text-sm uppercase tracking-widest text-off-white/70 hover:text-off-white hover:bg-white/5 transition-colors duration-150 border-b border-white/5 last:border-b-0"
+              className="block px-4 py-4 font-body text-sm uppercase tracking-widest text-off-white hover:text-off-white hover:bg-white/5 transition-colors duration-150 border-b border-white/5 last:border-b-0"
             >
               {link.label}
             </Link>

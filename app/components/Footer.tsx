@@ -9,20 +9,20 @@ export default function Footer() {
           <span className="font-display text-3xl tracking-widest text-accent uppercase">
             {nav.wordmark}
           </span>
-          <p className="mt-3 font-body text-xs text-off-white/40 leading-relaxed max-w-xs">
+          <p className="mt-3 font-body text-xs text-off-white leading-relaxed max-w-xs">
             {footer.tagline}
           </p>
         </div>
 
         {/* Contact */}
         <div className="space-y-2">
-          <h4 className="font-body text-xs uppercase tracking-widest text-off-white/30 mb-3">
+          <h4 className="font-body text-xs uppercase tracking-widest text-off-white mb-3">
             Contact
           </h4>
-          <p className="font-body text-sm text-off-white/60">{footer.address}</p>
+          <p className="font-body text-sm text-off-white">{footer.address}</p>
           <a
             href={`tel:${footer.phone.replace(/\s/g, "")}`}
-            className="block font-body text-sm text-off-white/60 hover:text-off-white transition-colors"
+            className="block font-body text-sm text-off-white hover:text-off-white transition-colors"
           >
             {footer.phone}
           </a>
@@ -38,7 +38,7 @@ export default function Footer() {
 
         {/* Nav */}
         <div>
-          <h4 className="font-body text-xs uppercase tracking-widest text-off-white/30 mb-3">
+          <h4 className="font-body text-xs uppercase tracking-widest text-off-white mb-3">
             Navigate
           </h4>
           <ul className="space-y-2">
@@ -46,7 +46,7 @@ export default function Footer() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="font-body text-sm text-off-white/60 hover:text-off-white transition-colors uppercase tracking-widest"
+                  className="font-body text-sm text-off-white hover:text-off-white transition-colors uppercase tracking-widest"
                 >
                   {link.label}
                 </a>
@@ -57,7 +57,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/5 py-4 text-center">
-        <p className="font-body text-xs text-off-white/20">
+        <p className="font-body text-xs text-off-white">
           &copy; {new Date().getFullYear()} Revive Fight Club. All rights reserved.
         </p>
       </div>

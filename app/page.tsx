@@ -119,7 +119,7 @@ export default function HomePage() {
                         <p className="font-display text-xl md:text-2xl text-off-white uppercase leading-none">
                           {p.label}
                         </p>
-                        <p className="font-body text-xs text-off-white/55 mt-2 max-w-[180px] leading-relaxed">
+                        <p className="font-body text-xs text-off-white mt-2 max-w-[180px] leading-relaxed">
                           {p.line}
                         </p>
                       </div>
@@ -128,7 +128,7 @@ export default function HomePage() {
                       </span>
                     </div>
                   </div>
-                  <span className="absolute top-4 right-4 font-body text-xs uppercase tracking-widest text-off-white/40 group-hover:text-off-white/70 transition-colors">
+                  <span className="absolute top-4 right-4 font-body text-xs uppercase tracking-widest text-off-white group-hover:text-off-white transition-colors">
                     {p.label}
                   </span>
                 </Link>
@@ -142,7 +142,7 @@ export default function HomePage() {
       <FadeUp>
         <section id="disciplines" className="bg-base border-t border-white/10 py-10 md:py-14 px-4 md:px-10 mt-10 md:mt-14">
           <div className="max-w-7xl mx-auto">
-            <p className="font-body text-[10px] uppercase tracking-[0.35em] text-off-white/30 mb-6">
+            <p className="font-body text-[10px] uppercase tracking-[0.35em] text-off-white mb-6">
               What we train
             </p>
             <ul className="divide-y divide-white/[0.08]">
@@ -179,7 +179,7 @@ export default function HomePage() {
               <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] text-off-white leading-none">
                 {home.split.headline}
               </h2>
-              <p className="mt-5 font-body text-sm md:text-base text-off-white/55 max-w-md leading-relaxed">
+              <p className="mt-5 font-body text-sm md:text-base text-off-white max-w-md leading-relaxed">
                 {home.split.body}
               </p>
               <Link
@@ -200,7 +200,7 @@ export default function HomePage() {
             <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] text-off-white leading-none">
               {home.community.headline}
             </h2>
-            <p className="font-body text-sm text-off-white/45 mt-2">
+            <p className="font-body text-sm text-off-white mt-2">
               {home.community.sub}
             </p>
           </div>
@@ -227,7 +227,7 @@ export default function HomePage() {
             <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)] text-off-white leading-none">
               {home.ctaBand.headline}
             </h2>
-            <p className="font-body text-sm text-off-white/70 mt-3">{home.ctaBand.sub}</p>
+            <p className="font-body text-sm text-off-white mt-3">{home.ctaBand.sub}</p>
           </div>
           <a
             href={waLink(wa.messages.firstSession)}

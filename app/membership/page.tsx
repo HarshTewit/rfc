@@ -28,7 +28,7 @@ export default function MembershipPage() {
           <h1 className="font-display text-[clamp(3.5rem,13vw,8rem)] leading-none text-off-white">
             {membership.hero.headline}
           </h1>
-          <p className="mt-4 font-body text-sm text-off-white/55 max-w-lg leading-relaxed">
+          <p className="mt-4 font-body text-sm text-off-white max-w-lg leading-relaxed">
             {membership.hero.body}
           </p>
         </div>
@@ -55,8 +55,8 @@ export default function MembershipPage() {
                     {day.classes.map((cls, i) => (
                       <div key={i} className="px-3 py-3">
                         <p className="font-display text-[10px] text-accent/80 tracking-widest">{cls.time}</p>
-                        <p className="font-body text-xs text-off-white/90 mt-1 leading-snug font-medium">{cls.name}</p>
-                        <p className="font-body text-[10px] text-off-white/35 mt-1">{cls.coach} · {cls.duration}</p>
+                        <p className="font-body text-xs text-off-white mt-1 leading-snug font-medium">{cls.name}</p>
+                        <p className="font-body text-[10px] text-off-white mt-1">{cls.coach} · {cls.duration}</p>
                       </div>
                     ))}
                   </div>
@@ -76,15 +76,15 @@ export default function MembershipPage() {
                       className="w-full flex items-center justify-between py-4 text-left min-h-[52px]"
                     >
                       <span className="font-display text-xl text-off-white uppercase">{day.day}</span>
-                      <span className="font-body text-off-white/40 text-lg" aria-hidden>{isOpen ? "−" : "+"}</span>
+                      <span className="font-body text-off-white text-lg" aria-hidden>{isOpen ? "−" : "+"}</span>
                     </button>
                     {isOpen && (
                       <div className="pb-4 space-y-2">
                         {day.classes.map((cls, i) => (
                           <div key={i} className="bg-surface px-4 py-3 border-l-2 border-accent">
                             <p className="font-display text-xs text-accent tracking-widest">{cls.time} · {cls.duration}</p>
-                            <p className="font-body text-sm text-off-white/90 mt-1">{cls.name}</p>
-                            <p className="font-body text-xs text-off-white/40 mt-0.5">{cls.coach}</p>
+                            <p className="font-body text-sm text-off-white mt-1">{cls.name}</p>
+                            <p className="font-body text-xs text-off-white mt-0.5">{cls.coach}</p>
                           </div>
                         ))}
                       </div>
@@ -108,18 +108,18 @@ export default function MembershipPage() {
                   key={plan.name}
                   className={`flex flex-col px-6 py-8 ${plan.featured ? "bg-accent" : "bg-surface"}`}
                 >
-                  <p className={`font-display text-sm uppercase tracking-widest ${plan.featured ? "text-off-white/70" : "text-off-white/35"}`}>
+                  <p className={`font-display text-sm uppercase tracking-widest ${plan.featured ? "text-off-white" : "text-off-white"}`}>
                     {plan.name}
                   </p>
                   <span className="font-display text-5xl leading-none text-off-white mt-4">{plan.price}</span>
-                  <p className={`font-body text-xs uppercase tracking-widest mt-1 mb-8 ${plan.featured ? "text-off-white/60" : "text-off-white/30"}`}>
+                  <p className={`font-body text-xs uppercase tracking-widest mt-1 mb-8 ${plan.featured ? "text-off-white" : "text-off-white"}`}>
                     {plan.period}
                   </p>
                   <ul className="space-y-3 flex-1">
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-start gap-2">
                         <span className={`mt-0.5 shrink-0 ${plan.featured ? "text-off-white" : "text-accent"}`}>✓</span>
-                        <span className={`font-body text-sm leading-snug ${plan.featured ? "text-off-white/80" : "text-off-white/55"}`}>{f}</span>
+                        <span className={`font-body text-sm leading-snug ${plan.featured ? "text-off-white" : "text-off-white"}`}>{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -162,7 +162,7 @@ export default function MembershipPage() {
                   <div className="px-4 py-4 md:py-5">
                     <p className="font-display text-base md:text-lg text-off-white uppercase leading-none">{coach.name}</p>
                     <p className="font-body text-xs text-accent uppercase tracking-widest mt-1">{coach.discipline}</p>
-                    <p className="font-body text-xs text-off-white/40 mt-3 leading-relaxed">{coach.line}</p>
+                    <p className="font-body text-xs text-off-white mt-3 leading-relaxed">{coach.line}</p>
                   </div>
                 </div>
               ))}
@@ -187,10 +187,10 @@ export default function MembershipPage() {
                       className="w-full flex items-start justify-between gap-4 py-5 text-left min-h-[56px]"
                     >
                       <span className="font-body text-sm md:text-base text-off-white font-medium">{faq.q}</span>
-                      <span className="shrink-0 font-body text-off-white/35 text-xl mt-0.5" aria-hidden>{isOpen ? "−" : "+"}</span>
+                      <span className="shrink-0 font-body text-off-white text-xl mt-0.5" aria-hidden>{isOpen ? "−" : "+"}</span>
                     </button>
                     {isOpen && (
-                      <p className="pb-5 font-body text-sm text-off-white/50 leading-relaxed max-w-2xl">{faq.a}</p>
+                      <p className="pb-5 font-body text-sm text-off-white leading-relaxed max-w-2xl">{faq.a}</p>
                     )}
                   </div>
                 );
@@ -217,7 +217,7 @@ export default function MembershipPage() {
             <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)] text-off-white leading-none">
               {membership.ctaBand.headline}
             </h2>
-            <p className="font-body text-sm text-off-white/70 mt-3">{membership.ctaBand.sub}</p>
+            <p className="font-body text-sm text-off-white mt-3">{membership.ctaBand.sub}</p>
           </div>
           <a
             href={waLink(wa.messages.firstSession)}

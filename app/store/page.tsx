@@ -83,7 +83,7 @@ export default function StorePage() {
           <h1 className="font-display text-[clamp(3.5rem,13vw,8rem)] leading-none text-off-white">
             {store.hero.headline}
           </h1>
-          <p className="mt-3 font-body text-sm text-off-white/55 max-w-md">{store.hero.sub}</p>
+          <p className="mt-3 font-body text-sm text-off-white max-w-md">{store.hero.sub}</p>
         </div>
       </section>
 
@@ -98,7 +98,7 @@ export default function StorePage() {
               className={`shrink-0 min-h-[44px] px-5 py-2 font-body text-xs uppercase tracking-widest transition-colors ${
                 active === cat
                   ? "bg-accent text-off-white"
-                  : "bg-surface text-off-white/50 hover:text-off-white hover:bg-white/10"
+                  : "bg-surface text-off-white hover:text-off-white hover:bg-white/10"
               }`}
             >
               {cat}
@@ -112,7 +112,7 @@ export default function StorePage() {
         <section id="products" className="bg-base py-10 md:py-14 px-4 md:px-10 min-h-[55vh]">
           <div className="max-w-7xl mx-auto">
             {filtered.length === 0 ? (
-              <p className="py-20 text-center font-body text-sm text-off-white/30">
+              <p className="py-20 text-center font-body text-sm text-off-white">
                 No products in this category.
               </p>
             ) : (
@@ -132,10 +132,10 @@ export default function StorePage() {
 
                     {/* Card body */}
                     <div className="flex flex-col flex-1 p-4">
-                      <p className="font-body text-[10px] text-off-white/35 uppercase tracking-widest">
+                      <p className="font-body text-[10px] text-off-white uppercase tracking-widest">
                         {product.category}
                       </p>
-                      <p className="font-body text-sm md:text-base text-off-white/90 mt-1 font-medium leading-snug flex-1">
+                      <p className="font-body text-sm md:text-base text-off-white mt-1 font-medium leading-snug flex-1">
                         {product.name}
                       </p>
                       <span className="font-display text-xl text-off-white mt-3 block">
@@ -151,7 +151,7 @@ export default function StorePage() {
                           }
                           aria-label={`Size for ${product.name}`}
                           style={{ colorScheme: "dark" }}
-                          className="mt-3 w-full bg-surface border border-white/10 text-off-white/70 text-xs py-2.5 px-3 font-body uppercase tracking-wider appearance-none cursor-pointer hover:border-white/25 transition-colors"
+                          className="mt-3 w-full bg-surface border border-white/10 text-off-white text-xs py-2.5 px-3 font-body uppercase tracking-wider appearance-none cursor-pointer hover:border-white/25 transition-colors"
                         >
                           {product.sizes.map((s) => (
                             <option key={s} value={s}>
@@ -178,7 +178,7 @@ export default function StorePage() {
                           )}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full text-center border border-white/15 py-2.5 font-body text-[11px] uppercase tracking-widest text-off-white/50 hover:border-white/30 hover:text-off-white/80 transition-colors"
+                          className="w-full text-center border border-white/15 py-2.5 font-body text-[11px] uppercase tracking-widest text-off-white hover:border-white/30 hover:text-off-white transition-colors"
                         >
                           Order on WhatsApp
                         </a>
@@ -196,7 +196,7 @@ export default function StorePage() {
       <section className="bg-surface border-t border-white/10 py-7 px-4 md:px-10">
         <div className="max-w-7xl mx-auto flex items-center gap-3">
           <span className="text-accent text-base shrink-0" aria-hidden>↗</span>
-          <p className="font-body text-sm text-off-white/50">{store.note}</p>
+          <p className="font-body text-sm text-off-white">{store.note}</p>
         </div>
       </section>
 
@@ -238,7 +238,7 @@ export default function StorePage() {
           <button
             onClick={() => setCartOpen(false)}
             aria-label="Close cart"
-            className="text-off-white/50 hover:text-off-white transition-colors text-xl w-8 h-8 flex items-center justify-center"
+            className="text-off-white hover:text-off-white transition-colors text-xl w-8 h-8 flex items-center justify-center"
           >
             ✕
           </button>
@@ -247,7 +247,7 @@ export default function StorePage() {
         {/* Items */}
         <div className="flex-1 overflow-y-auto px-5 py-4 space-y-5">
           {cart.length === 0 ? (
-            <p className="font-body text-sm text-off-white/35 text-center py-12">
+            <p className="font-body text-sm text-off-white text-center py-12">
               Your cart is empty.
             </p>
           ) : (
@@ -257,16 +257,16 @@ export default function StorePage() {
                   <Image src={item.image} alt={item.name} fill className="object-contain p-1.5" sizes="64px" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-body text-sm text-off-white/90 font-medium leading-snug truncate">{item.name}</p>
+                  <p className="font-body text-sm text-off-white font-medium leading-snug truncate">{item.name}</p>
                   {item.size && (
-                    <p className="font-body text-xs text-off-white/40 mt-0.5">{item.size}</p>
+                    <p className="font-body text-xs text-off-white mt-0.5">{item.size}</p>
                   )}
                   <div className="flex items-center justify-between mt-2">
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => updateQty(item.id, -1)}
                         aria-label="Remove one"
-                        className="w-7 h-7 bg-surface text-off-white/60 hover:text-off-white flex items-center justify-center text-sm transition-colors"
+                        className="w-7 h-7 bg-surface text-off-white hover:text-off-white flex items-center justify-center text-sm transition-colors"
                       >
                         −
                       </button>
@@ -274,7 +274,7 @@ export default function StorePage() {
                       <button
                         onClick={() => updateQty(item.id, 1)}
                         aria-label="Add one"
-                        className="w-7 h-7 bg-surface text-off-white/60 hover:text-off-white flex items-center justify-center text-sm transition-colors"
+                        className="w-7 h-7 bg-surface text-off-white hover:text-off-white flex items-center justify-center text-sm transition-colors"
                       >
                         +
                       </button>
@@ -293,12 +293,12 @@ export default function StorePage() {
         {cart.length > 0 && (
           <div className="border-t border-white/10 px-5 py-5 space-y-4 shrink-0">
             <div className="flex justify-between items-baseline">
-              <span className="font-body text-xs uppercase tracking-widest text-off-white/40">Subtotal</span>
+              <span className="font-body text-xs uppercase tracking-widest text-off-white">Subtotal</span>
               <span className="font-display text-2xl text-off-white">
                 ₹{cartTotal.toLocaleString("en-IN")}
               </span>
             </div>
-            <p className="font-body text-xs text-off-white/25 leading-relaxed">
+            <p className="font-body text-xs text-off-white leading-relaxed">
               Pay on pickup. We'll confirm your order via WhatsApp.
             </p>
             <button
