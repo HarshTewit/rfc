@@ -1,45 +1,72 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import ImageGrain from "@/app/components/ImageGrain";
 import FadeUp from "@/app/components/FadeUp";
 import { spa, wa, waLink } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Recovery Spa | Revived Fight Club",
   description:
-    "Sports massage, ice bath, infrared sauna, physio, cupping, and compression boots. Recovery at RFC, Bangalore.",
+    "Sports massage, ice bath, sauna, steam, physio, cupping. Recovery at RFC, Bangalore.",
   openGraph: {
     title: "Recovery Spa | Revived Fight Club",
     description: "Rest is training. Treat it that way — RFC Recovery Spa, Bangalore.",
-    images: [{ url: "/images/spa2.webp" }],
   },
 };
 
-// ── Inline SVG icons (no icon library) ───────────────────────────────────────
+// ── Inline SVG icons — thin amber strokes, no library ────────────────────────
 function WaveIcon() {
   return (
-    <svg width="32" height="24" viewBox="0 0 32 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M1 16 C5 6, 9 6, 13 16 C17 26, 21 26, 25 16 C27 11, 29 8, 31 8" />
+    <svg
+      width="36"
+      height="28"
+      viewBox="0 0 36 28"
+      fill="none"
+      stroke="#C8922B"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M1 18 C5 6, 10 6, 15 18 C20 30, 25 30, 30 18 C32 12, 34 9, 35 9" />
     </svg>
   );
 }
 
 function ShieldIcon() {
   return (
-    <svg width="28" height="32" viewBox="0 0 28 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M14 1 L27 6 V16 C27 23 21 28 14 31 C7 28 1 23 1 16 V6 Z" />
-      <polyline points="8,15 12,20 20,10" />
+    <svg
+      width="30"
+      height="36"
+      viewBox="0 0 30 36"
+      fill="none"
+      stroke="#C8922B"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M15 1 L29 6 V17 C29 25 23 30 15 34 C7 30 1 25 1 17 V6 Z" />
+      <polyline points="9,17 13,22 22,11" />
     </svg>
   );
 }
 
 function CycleIcon() {
   return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M22 3 L27 8 L22 13" />
-      <path d="M5 16 C5 10 10 4 16 4 L27 4" />
-      <path d="M10 29 L5 24 L10 19" />
-      <path d="M27 16 C27 22 22 28 16 28 L5 28" />
+    <svg
+      width="36"
+      height="36"
+      viewBox="0 0 36 36"
+      fill="none"
+      stroke="#C8922B"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M25 3 L31 9 L25 15" />
+      <path d="M5 18 C5 11 11 4 18 4 L31 4" />
+      <path d="M11 33 L5 27 L11 21" />
+      <path d="M31 18 C31 25 25 32 18 32 L5 32" />
     </svg>
   );
 }
@@ -48,103 +75,133 @@ const ICONS = { wave: WaveIcon, shield: ShieldIcon, cycle: CycleIcon };
 
 export default function SpaPage() {
   return (
+    /*
+     * Spa theme: sand bg #EDE7DD, ink #1C1A17, amber accent #C8922B.
+     * Scoped via .spa-theme — does not affect any other route.
+     * This page is intentionally type-led; no photography.
+     * All photo TODO markers are clearly commented below.
+     */
     <div className="spa-theme">
-      {/* ── 1. Hero ─────────────────────────────────────────────────────── */}
-      <section
-        id="hero"
-        className="relative h-[75vh] min-h-[520px] overflow-hidden flex items-end"
-      >
-        <Image
-          src="/images/spa2.webp"
-          alt="Calm recovery spa room at RFC — ambient lighting, treatment table"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-        <ImageGrain opacity={0.04} />
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#1C1A17]/40 to-transparent z-[3]" />
-        <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-[#1C1A17] via-[#1C1A17]/75 to-transparent z-[3]" />
-        <div className="relative z-[4] w-full px-4 pb-14 md:pb-20 md:px-10 max-w-7xl mx-auto">
-          <h1 className="font-display text-[clamp(3.5rem,14vw,9rem)] leading-[0.88] text-[#EDE7DD] whitespace-pre-line">
-            {spa.hero.headline}
-          </h1>
-          <p className="mt-4 font-body text-base md:text-lg text-[#EDE7DD]/65 max-w-md">
-            {spa.hero.sub}
-          </p>
-        </div>
+
+      {/* ── 1. Hero ── type on sand, no image ──────────────────────────── */}
+      <section id="hero" className="px-4 pt-16 pb-14 md:pt-24 md:pb-20 md:px-10 max-w-7xl mx-auto">
+        {/*
+         * TODO: Hero photo option — if you later want photography here,
+         * add a full-bleed image block above this section:
+         *
+         * <div className="relative h-[50vh] overflow-hidden mb-12">
+         *   <Image
+         *     src="/images/spa-hero.webp"
+         *     alt="RFC spa treatment room — warm lighting, clean surfaces"
+         *     fill className="object-cover"
+         *     priority
+         *   />
+         *   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#EDE7DD]" />
+         * </div>
+         *
+         * Suggested shot: wide, warm-toned treatment room, portrait or landscape.
+         */}
+        <p className="font-body text-xs uppercase tracking-[0.35em] text-[#1C1A17]/35 mb-8">
+          Revived Fight Club
+        </p>
+        <h1 className="font-display text-[clamp(4rem,16vw,10rem)] leading-[0.86] text-[#1C1A17] whitespace-pre-line">
+          {spa.hero.headline}
+        </h1>
+
+        {/* Thin amber rule */}
+        <div className="h-px bg-[#C8922B]/40 mt-10 mb-8 max-w-xs" />
+
+        <p className="font-body text-sm md:text-base text-[#1C1A17]/55 max-w-md leading-relaxed">
+          {spa.hero.sub}
+        </p>
+        <p className="mt-4 font-body text-xs text-[#1C1A17]/35 uppercase tracking-widest">
+          {spa.hero.rule}
+        </p>
       </section>
 
       {/* ── 2. Services ─────────────────────────────────────────────────── */}
       <FadeUp>
-        <section id="services" className="px-4 md:px-10 py-14 md:py-20 border-b border-[#1C1A17]/10 max-w-7xl mx-auto">
-          <h2 className="font-display text-3xl md:text-5xl text-[#1C1A17] mb-10">
-            Services
-          </h2>
-          <div className="divide-y divide-[#1C1A17]/10 border-t border-[#1C1A17]/10">
-            {spa.services.map((svc) => (
-              <div
-                key={svc.name}
-                className="grid grid-cols-[1fr_auto] gap-4 md:gap-8 py-5 md:py-6 items-start"
-              >
-                <div>
-                  <h3 className="font-display text-xl md:text-2xl text-[#1C1A17] leading-none">
-                    {svc.name}
-                  </h3>
-                  <p className="font-body text-sm text-[#1C1A17]/50 mt-2 leading-relaxed max-w-xl">
-                    {svc.line}
-                  </p>
-                </div>
-                <div className="text-right shrink-0">
-                  <p className="font-display text-xl md:text-2xl text-[#C8922B] leading-none">
-                    {svc.price}
-                  </p>
-                  <p className="font-body text-xs uppercase tracking-widest text-[#1C1A17]/40 mt-1.5">
-                    {svc.duration}
-                  </p>
-                </div>
-              </div>
-            ))}
+        <section id="services" className="border-t border-[#1C1A17]/10 px-4 md:px-10 py-14 md:py-20">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="font-display text-3xl md:text-5xl text-[#1C1A17] mb-10">Services</h2>
+
+            {/*
+             * TODO: Optional section photo — a 16:9 image above or beside
+             * the services list would add context. Suggested: therapist at
+             * work, soft-focus background, warm amber tones.
+             *
+             * <div className="relative aspect-video mb-10 overflow-hidden">
+             *   <Image src="/images/spa-services.webp" alt="..." fill className="object-cover" />
+             * </div>
+             */}
+
+            <ul className="border-t border-[#1C1A17]/10">
+              {spa.services.map((svc) => (
+                <li
+                  key={svc.name}
+                  className="group relative border-b border-[#1C1A17]/10 py-5 pl-5 pr-4 transition-colors duration-200 hover:bg-[#1C1A17]/[0.03]"
+                >
+                  {/* Amber left border — scales in on hover */}
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#C8922B] scale-y-0 group-hover:scale-y-100 transition-transform duration-250 origin-bottom"
+                    aria-hidden
+                  />
+                  <div className="grid grid-cols-[1fr_auto] gap-4 items-start">
+                    <div>
+                      <h3 className="font-display text-lg md:text-2xl text-[#1C1A17] leading-none">
+                        {svc.name}
+                      </h3>
+                      <p className="font-body text-sm text-[#1C1A17]/45 mt-2 leading-relaxed max-w-xl">
+                        {svc.line}
+                      </p>
+                    </div>
+                    <div className="text-right shrink-0 pt-0.5">
+                      <p className="font-display text-xl md:text-2xl text-[#C8922B] leading-none">
+                        {svc.price}
+                      </p>
+                      <p className="font-body text-[10px] uppercase tracking-widest text-[#1C1A17]/35 mt-1.5">
+                        {svc.duration}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </FadeUp>
 
-      {/* ── Image break ─────────────────────────────────────────────────── */}
-      <FadeUp>
-        <div className="relative h-64 md:h-96 overflow-hidden">
-          <Image
-            src="/images/spa3.webp"
-            alt="RFC spa therapist performing a sports massage treatment"
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-          <ImageGrain opacity={0.04} />
-          <div className="absolute inset-0 bg-[#1C1A17]/20" />
-        </div>
-      </FadeUp>
-
       {/* ── 3. Why recovery ─────────────────────────────────────────────── */}
       <FadeUp>
-        <section id="why" className="px-4 md:px-10 py-14 md:py-20 border-b border-[#1C1A17]/10">
+        <section id="why" className="border-t border-[#1C1A17]/10 px-4 md:px-10 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
-            <h2 className="font-display text-3xl md:text-5xl text-[#1C1A17] mb-12">
-              Why Recover?
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            <h2 className="font-display text-3xl md:text-5xl text-[#1C1A17] mb-12">Why recover?</h2>
+
+            {/*
+             * TODO: Optional 3-up image row here — one photo per recovery point.
+             * Suggested aspect: 1:1 square, subjects: ice bath plunge,
+             * massage in progress, athlete stretching.
+             *
+             * <div className="grid grid-cols-3 gap-2 mb-12">
+             *   <div className="aspect-square relative overflow-hidden">
+             *     <Image src="/images/spa-ice.webp" alt="Ice bath" fill className="object-cover" />
+             *   </div>
+             *   ...
+             * </div>
+             */}
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
               {spa.whyRecover.map((point) => {
                 const Icon = ICONS[point.icon];
                 return (
                   <div key={point.headline}>
-                    <div className="text-[#C8922B] mb-4">
+                    <div className="mb-5">
                       <Icon />
                     </div>
                     <h3 className="font-display text-xl md:text-2xl text-[#1C1A17] leading-none mb-3">
                       {point.headline}
                     </h3>
-                    <p className="font-body text-sm text-[#1C1A17]/55 leading-relaxed">
-                      {point.body}
-                    </p>
+                    <p className="font-body text-sm text-[#1C1A17]/50 leading-relaxed">{point.body}</p>
                   </div>
                 );
               })}
@@ -153,27 +210,39 @@ export default function SpaPage() {
         </section>
       </FadeUp>
 
-      {/* ── 4. Booking CTA ──────────────────────────────────────────────── */}
-      <section id="book" className="py-16 md:py-20 px-4 md:px-10 bg-[#C8922B]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-          <div>
-            <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)] text-[#EDE7DD] leading-none">
-              {spa.cta.headline}
-            </h2>
-            <p className="font-body text-sm text-[#EDE7DD]/70 mt-3">
-              {spa.cta.sub}
-            </p>
-          </div>
-          <a
-            href={waLink(wa.messages.spa)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 inline-block bg-[#1C1A17] text-[#EDE7DD] px-8 py-4 font-body text-sm uppercase tracking-widest hover:bg-[#1C1A17]/85 transition-colors"
-          >
-            {spa.cta.ctaLabel}
-          </a>
-        </div>
+      {/* ── 4. Quiet amber band ─────────────────────────────────────────── */}
+      <section className="bg-[#C8922B] py-10 md:py-14 px-4 md:px-10 text-center">
+        {/*
+         * TODO: A subtle background texture or image could work here with
+         * mix-blend-mode: multiply. Keep it very understated — the copy
+         * should be the focal point. Suggested: linen or grain texture at ~5%.
+         */}
+        <p className="font-display text-[clamp(1.4rem,3.5vw,2.25rem)] text-[#1C1A17] max-w-3xl mx-auto leading-tight">
+          {spa.band.copy}
+        </p>
       </section>
+
+      {/* ── 5. Booking CTA ──────────────────────────────────────────────── */}
+      <FadeUp>
+        <section id="book" className="border-t border-[#1C1A17]/10 px-4 md:px-10 py-16 md:py-20">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div>
+              <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)] text-[#1C1A17] leading-none">
+                {spa.cta.headline}
+              </h2>
+              <p className="font-body text-sm text-[#1C1A17]/45 mt-3">{spa.cta.sub}</p>
+            </div>
+            <a
+              href={waLink(wa.messages.spa)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-block bg-[#1C1A17] text-[#EDE7DD] px-8 py-4 font-body text-xs uppercase tracking-widest hover:bg-[#1C1A17]/85 transition-colors"
+            >
+              {spa.cta.ctaLabel}
+            </a>
+          </div>
+        </section>
+      </FadeUp>
     </div>
   );
 }

@@ -1,5 +1,4 @@
-// All site copy, pricing, and data lives here.
-// Pages import from this file — never hardcode copy in JSX.
+// All copy, pricing, and data lives here. Never hardcode copy in JSX.
 
 // ─── WhatsApp ────────────────────────────────────────────────────────────────
 export const wa = {
@@ -8,7 +7,10 @@ export const wa = {
     firstSession: "Hi, I'd like to book my first free session at RFC.",
     membership: "Hi, I'm interested in an RFC membership. Can you share the details?",
     spa: "Hi, I'd like to book a recovery spa session at RFC.",
-    order: (product: string) => `Hi, I'd like to order the ${product} from the RFC Store.`,
+    order: (product: string, size?: string) =>
+      size
+        ? `Hi, I'd like to order the ${product} (${size}) from the RFC Store.`
+        : `Hi, I'd like to order the ${product} from the RFC Store.`,
   },
 };
 
@@ -36,6 +38,10 @@ export const footer = {
 };
 
 // ─── Home ─────────────────────────────────────────────────────────────────────
+export type Pillar =
+  | { key: string; label: string; line: string; href: string; solid: false; image: string; imageAlt: string }
+  | { key: string; label: string; line: string; href: string; solid: true };
+
 export const home = {
   hero: {
     headline: "Revived\nFight\nClub",
@@ -49,6 +55,7 @@ export const home = {
       label: "Fight Club",
       line: "Boxing · MMA · Muay Thai · BJJ — every level welcome.",
       href: "/membership",
+      solid: false,
       image: "/images/bagwork-kick.webp",
       imageAlt: "Athlete in red gloves landing a kick on a heavy bag at RFC",
     },
@@ -57,25 +64,34 @@ export const home = {
       label: "Store",
       line: "Hand-picked gear for the serious athlete.",
       href: "/store",
+      solid: false,
       image: "/images/product-gloves.avif",
-      imageAlt: "RFC Pro Boxing Gloves on a dark background",
+      imageAlt: "RFC Pro Boxing Gloves on a gym floor",
     },
     {
       key: "spa",
       label: "Recovery Spa",
       line: "Ice baths, massage, compression. Rest is training.",
       href: "/spa",
-      image: "/images/spa1.webp",
-      imageAlt: "RFC recovery spa treatment room",
+      solid: true,
     },
-  ],
-  disciplines: ["Boxing", "MMA", "Muay Thai", "BJJ", "Strength"],
-  stats: [
-    { value: "7", label: "Years running" },
-    { value: "400+", label: "Active members" },
-    { value: "12", label: "Coaches" },
-    { value: "35+", label: "Classes / week" },
-  ],
+  ] as Pillar[],
+  disciplines: ["Boxing", "MMA", "Muay Thai", "Kickboxing", "Strength"],
+  split: {
+    headline: "More than a gym.",
+    body: "RFC is a training community built around combat sports. Show up once and you'll understand the difference between a franchise gym and a real one.",
+    image: "/images/gym-floor-weights.webp",
+    imageAlt: "RFC gym floor with weights and equipment in dark, moody lighting",
+  },
+  community: {
+    headline: "Train with 400+ members.",
+    sub: "Beginners to black belts. All welcome.",
+    images: [
+      { src: "/images/team-group-01.webp", alt: "RFC class group photo — full mat session" },
+      { src: "/images/team-group-02.webp", alt: "RFC members after a morning sparring session" },
+      { src: "/images/team-group-03.webp", alt: "RFC community group shot in the training hall" },
+    ],
+  },
   ctaBand: {
     headline: "First session is free.",
     sub: "Show up once. You'll be back.",
@@ -91,6 +107,8 @@ export const membership = {
   hero: {
     headline: "Membership",
     body: "RFC runs morning, afternoon, and evening sessions six days a week. Pick a plan, show up, and let the coaches do the rest.",
+    image: "/images/gloves-back.webp",
+    imageAlt: "RFC athlete from behind with red boxing gloves raised, ready to train",
   },
   schedule: [
     {
@@ -189,30 +207,30 @@ export const membership = {
     {
       name: "Rajan Pillai",
       discipline: "Boxing",
-      bio: "Head coach. 12 years on the national circuit, 8 years coaching.",
+      line: "Head coach. 12 years on the national circuit, 8 years coaching.",
       image: "/images/coach-portrait.webp",
       imageAlt: "Rajan Pillai, RFC head boxing coach, outdoor portrait",
     },
     {
       name: "Arjun Mehta",
-      discipline: "MMA & Muay Thai",
-      bio: "ONE Championship veteran. Teaches clinch, striking, and fight IQ.",
-      image: "/images/highkick.jpg",
-      imageAlt: "Arjun Mehta throwing a high kick during training",
+      discipline: "Muay Thai & MMA",
+      line: "ONE Championship veteran. Teaches clinch, striking, and fight IQ.",
+      image: "/images/bagwork-punch.webp",
+      imageAlt: "Arjun Mehta throwing a powerful punch at a heavy bag",
     },
     {
       name: "Priya Nair",
       discipline: "Brazilian Jiu-Jitsu",
-      bio: "Purple belt under Draculino. First female BJJ coach in Bangalore.",
+      line: "Purple belt under Draculino. First female BJJ coach in Bangalore.",
       image: "/images/fighter-pose.webp",
-      imageAlt: "Priya Nair posed in the RFC training room",
+      imageAlt: "Priya Nair posed in the empty RFC training room",
     },
     {
       name: "Vikram Shetty",
       discipline: "Strength & Conditioning",
-      bio: "NSCA-certified. Builds the engine every fighter needs.",
-      image: "/images/gloves-back.webp",
-      imageAlt: "Athlete from behind with red boxing gloves raised",
+      line: "NSCA-certified. Builds the engine every fighter needs.",
+      image: "/images/highkick.jpg",
+      imageAlt: "Vikram Shetty demonstrating a high kick during training",
     },
   ],
   faqs: [
@@ -222,7 +240,7 @@ export const membership = {
     },
     {
       q: "What should I bring to my first session?",
-      a: "Comfortable training gear, a water bottle, and clean indoor shoes or bare feet. We have hand wraps and gloves available to hire while you find your own.",
+      a: "Comfortable training gear, a water bottle, and clean indoor shoes or bare feet. Hand wraps and gloves are available to hire.",
     },
     {
       q: "Is the first session really free?",
@@ -230,101 +248,71 @@ export const membership = {
     },
     {
       q: "How many times a week should I train?",
-      a: "2–3 sessions a week is a solid start. Once your body adapts, most members train 4–5 times and add recovery spa sessions.",
+      a: "2–3 sessions a week is a solid start. Once your body adapts, most members train 4–5 times and pair it with recovery spa sessions.",
     },
     {
       q: "Do you offer personal training?",
-      a: "Yes — 1-on-1 sessions with any of our coaches can be booked directly via WhatsApp. Rate depends on the coach and session length.",
+      a: "Yes — 1-on-1 sessions with any of our coaches can be booked via WhatsApp. Rate depends on the coach and session length.",
     },
   ],
   ctaBand: {
     headline: "First session is free.",
     sub: "No experience needed. Just show up.",
     cta: "Book on WhatsApp",
+    image: "/images/sparring-02.webp",
+    imageAlt: "Two RFC fighters sparring in the ring, wider frame",
   },
 };
 
 // ─── Store ─────────────────────────────────────────────────────────────────────
 export type Product = {
   name: string;
-  price: string;
+  price: number;
+  priceStr: string;
   category: string;
   image: string;
   imageAlt: string;
+  sizes?: string[];
 };
 
-export const STORE_CATEGORIES = ["All", "Gloves", "Wraps", "Apparel", "Gear"] as const;
+export const STORE_CATEGORIES = ["All", "Gloves", "Apparel"] as const;
 export type StoreCategory = (typeof STORE_CATEGORIES)[number];
 
 export const store = {
   hero: {
-    headline: "Store",
+    headline: "RFC Store",
     sub: "Gear built for the gym floor.",
+    image: "/images/rfc-logo-wall.webp",
+    imageAlt: "RFC logo on the gym wall with members training in the background",
   },
-  note: "Pickup at the gym or delivery across Bangalore.",
+  note: "Pickup at the gym or delivery across Bangalore. Pay on pickup.",
   products: [
     {
-      name: "RFC Pro Boxing Gloves 12oz",
-      price: "₹3,499",
+      name: "RFC Training Gloves",
+      price: 3499,
+      priceStr: "₹3,499",
       category: "Gloves",
       image: "/images/product-gloves.avif",
-      imageAlt: "RFC Pro Boxing Gloves 12oz on a light background",
+      imageAlt: "RFC Training Gloves, black leather, resting on the gym floor",
+      sizes: ["8 oz", "10 oz", "12 oz", "14 oz", "16 oz"],
     },
     {
-      name: "RFC Sparring Gloves 16oz",
-      price: "₹2,799",
-      category: "Gloves",
-      image: "/images/product-gloves.avif",
-      imageAlt: "RFC Sparring Gloves 16oz",
-    },
-    {
-      name: "MMA Grappling Gloves",
-      price: "₹1,699",
-      category: "Gloves",
-      image: "/images/product-gloves.avif",
-      imageAlt: "MMA grappling gloves open-palm style",
-    },
-    {
-      name: "Cotton Hand Wraps (pair)",
-      price: "₹349",
-      category: "Wraps",
-      image: "/images/product-gloves.avif",
-      imageAlt: "Cotton hand wraps in traditional style",
-    },
-    {
-      name: "Elastic Hand Wraps (pair)",
-      price: "₹299",
-      category: "Wraps",
-      image: "/images/product-gloves.avif",
-      imageAlt: "Elastic hand wraps for boxing training",
-    },
-    {
-      name: "RFC Training Tee",
-      price: "₹999",
-      category: "Apparel",
-      image: "/images/product-tee.jpeg",
-      imageAlt: "RFC Training Tee in dark colourway",
-    },
-    {
-      name: "RFC Compression Shorts",
-      price: "₹1,299",
+      name: "RFC Fight Trunks",
+      price: 1999,
+      priceStr: "₹1,999",
       category: "Apparel",
       image: "/images/product-trunks.jpg",
-      imageAlt: "RFC Compression Shorts, athletic cut",
+      imageAlt: "RFC Fight Trunks with red and black waistband detail",
+      sizes: ["S", "M", "L", "XL", "XXL"],
     },
     {
-      name: "Muay Thai Shin Guards",
-      price: "₹2,199",
-      category: "Gear",
-      image: "/images/product-gloves.avif",
-      imageAlt: "Muay Thai shin guards for sparring",
-    },
-    {
-      name: "Speed Skipping Rope",
-      price: "₹499",
-      category: "Gear",
-      image: "/images/product-gloves.avif",
-      imageAlt: "Speed skipping rope for boxing conditioning",
+      name: "RFC Tee",
+      price: 999,
+      priceStr: "₹999",
+      category: "Apparel",
+      image: "/images/product-tee.jpeg",
+      imageAlt: "RFC Training Tee, clean black with minimal branding",
+      sizes: ["S", "M", "L", "XL", "XXL"],
     },
   ] as Product[],
 };
@@ -334,6 +322,7 @@ export const spa = {
   hero: {
     headline: "Recovery\nSpa",
     sub: "Rest is training. Treat it that way.",
+    rule: "Sports massage · Ice bath · Sauna · Physio · Cupping",
   },
   services: [
     {
@@ -355,6 +344,12 @@ export const spa = {
       line: "Flush toxins, ease soreness. The oldest recovery tool, upgraded.",
     },
     {
+      name: "Steam Room",
+      duration: "20 min",
+      price: "₹600",
+      line: "Relaxes muscle tension and opens airways. Best before a massage.",
+    },
+    {
       name: "Physiotherapy",
       duration: "45 min",
       price: "₹3,500",
@@ -365,12 +360,6 @@ export const spa = {
       duration: "45 min",
       price: "₹1,800",
       line: "Myofascial decompression used by combat athletes and Olympic teams worldwide.",
-    },
-    {
-      name: "Compression Boots",
-      duration: "30 min",
-      price: "₹600",
-      line: "Sequential air compression to clear lactate from the legs. Passive, powerful.",
     },
   ],
   whyRecover: [
@@ -390,6 +379,9 @@ export const spa = {
       body: "Athletes who recover properly can train 4–5 days a week instead of 2–3.",
     },
   ],
+  band: {
+    copy: "Recovery is the difference between a good athlete and a great one.",
+  },
   cta: {
     headline: "Book your first session.",
     sub: "Recovery is training. Start now.",
