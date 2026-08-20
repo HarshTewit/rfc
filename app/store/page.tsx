@@ -88,7 +88,7 @@ export default function StorePage() {
       </section>
 
       {/* ── 2. Category filter ──────────────────────────────────────────── */}
-      <section className="bg-base border-b border-white/10 sticky top-14 z-30">
+      <section className="bg-coal border-b border-white/10 sticky top-14 z-30">
         <div className="max-w-7xl mx-auto px-4 md:px-10 py-3 flex gap-2 overflow-x-auto scrollbar-none">
           {STORE_CATEGORIES.map((cat) => (
             <button
@@ -109,7 +109,7 @@ export default function StorePage() {
 
       {/* ── 3. Product grid ─────────────────────────────────────────────── */}
       <FadeUp>
-        <section id="products" className="bg-base py-10 md:py-14 px-4 md:px-10 min-h-[55vh]">
+        <section id="products" className="bg-coal py-10 md:py-14 px-4 md:px-10 min-h-[55vh]">
           <div className="max-w-7xl mx-auto">
             {filtered.length === 0 ? (
               <p className="py-20 text-center font-body text-sm text-off-white">
@@ -118,7 +118,7 @@ export default function StorePage() {
             ) : (
               <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-white/[0.08]">
                 {filtered.map((product) => (
-                  <div key={product.name} className="bg-base flex flex-col group">
+                  <div key={product.name} className="bg-coal flex flex-col group">
                     {/* Product image — object-contain on off-white background */}
                     <div className="aspect-square relative overflow-hidden bg-[#F5F3EF]">
                       <Image
@@ -228,7 +228,7 @@ export default function StorePage() {
         role="dialog"
         aria-label="Your cart"
         aria-modal="true"
-        className={`cart-drawer fixed top-0 right-0 h-full w-full max-w-sm bg-base border-l border-white/10 z-50 flex flex-col ${cartOpen ? "open" : ""}`}
+        className={`cart-drawer fixed top-0 right-0 h-full w-full max-w-sm bg-coal border-l border-white/10 z-50 flex flex-col ${cartOpen ? "open" : ""}`}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 shrink-0">

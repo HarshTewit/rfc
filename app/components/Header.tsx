@@ -8,7 +8,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-base/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-coal/95 backdrop-blur-sm">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4">
         {/* Wordmark */}
         <Link
@@ -51,7 +51,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <nav className="md:hidden border-t border-white/10 bg-base">
+        <nav className="md:hidden border-t border-white/10 bg-coal">
           {nav.links.map((link) => (
             <Link
               key={link.href}

@@ -36,7 +36,7 @@ export default function MembershipPage() {
 
       {/* ── 2. Schedule ─────────────────────────────────────────────────── */}
       <FadeUp>
-        <section id="schedule" className="bg-base py-14 md:py-16 px-4 md:px-10 border-b border-white/10">
+        <section id="schedule" className="bg-coal py-14 md:py-16 px-4 md:px-10 border-b border-white/10">
           <div className="max-w-7xl mx-auto">
             <h2 className="font-display text-3xl md:text-5xl text-off-white mb-10">
               Class Schedule
@@ -45,7 +45,7 @@ export default function MembershipPage() {
             {/* Desktop 7-col grid */}
             <div className="hidden md:grid md:grid-cols-7 gap-px bg-white/10">
               {membership.schedule.map((day) => (
-                <div key={day.day} className="bg-base">
+                <div key={day.day} className="bg-coal">
                   <div className="bg-surface px-3 py-3 border-b border-white/10">
                     <span className="font-display text-sm text-accent uppercase tracking-widest">
                       {day.short}
@@ -144,12 +144,12 @@ export default function MembershipPage() {
 
       {/* ── 4. Coaches ──────────────────────────────────────────────────── */}
       <FadeUp>
-        <section id="coaches" className="bg-base py-14 md:py-16 px-4 md:px-10 border-b border-white/10">
+        <section id="coaches" className="bg-coal py-14 md:py-16 px-4 md:px-10 border-b border-white/10">
           <div className="max-w-7xl mx-auto">
             <h2 className="font-display text-3xl md:text-5xl text-off-white mb-10">Coaches</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
               {membership.coaches.map((coach) => (
-                <div key={coach.name} className="bg-base group">
+                <div key={coach.name} className="bg-coal group">
                   <div className="aspect-[3/4] relative overflow-hidden">
                     <Image
                       src={coach.image}

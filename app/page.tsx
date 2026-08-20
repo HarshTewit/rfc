@@ -66,73 +66,42 @@ export default function HomePage() {
 
       {/* ── 2. Three-pillar row ─────────────────────────────────────────── */}
       <FadeUp>
-        <section id="pillars" className="bg-base px-4 md:px-10 pt-10 md:pt-14">
+        <section id="pillars" className="bg-coal px-4 md:px-10 pt-10 md:pt-14">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/10">
             {home.pillars.map((p) =>
-              p.solid ? (
-                /* Spa pillar — photo with amber overlay */
-                <Link
-                  key={p.key}
-                  href={p.href}
-                  className="group relative bg-[#C8922B] overflow-hidden flex flex-col aspect-[3/4]"
-                >
-                  {/* Spa photo underneath amber tint */}
-                  <Image
-                    src="/images/spa2.webp"
-                    alt="RFC recovery spa"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                  />
-                  {/* Amber colour overlay — gives branded feel while letting photo breathe */}
-                  <div className="absolute inset-0 bg-[#C8922B]/80" />
-                  <div className="relative z-10 flex-1 p-6 md:p-8 flex flex-col justify-end">
-                    <p className="font-display text-[clamp(2rem,5vw,3.5rem)] text-[#1C1A17] leading-none">
-                      Recovery<br />Spa
-                    </p>
-                    <p className="font-body text-xs text-[#1C1A17]/70 mt-3 max-w-[200px] leading-relaxed">
-                      {p.line}
-                    </p>
-                  </div>
-                  <span className="absolute top-5 right-5 z-10 font-display text-[#1C1A17]/60 text-xl group-hover:translate-x-1 transition-transform">
-                    →
-                  </span>
-                </Link>
-              ) : (
-                /* Photo pillars */
-                <Link
-                  key={p.key}
-                  href={p.href}
-                  className="group relative bg-base overflow-hidden block aspect-[3/4]"
-                >
-                  <Image
-                    src={p.image}
-                    alt={p.imageAlt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
-                    <div className="flex items-end justify-between">
-                      <div>
-                        <p className="font-display text-xl md:text-2xl text-off-white uppercase leading-none">
-                          {p.label}
-                        </p>
-                        <p className="font-body text-xs text-off-white mt-2 max-w-[180px] leading-relaxed">
-                          {p.line}
-                        </p>
-                      </div>
-                      <span className="font-display text-accent text-xl group-hover:translate-x-1 transition-transform shrink-0 ml-3">
-                        →
-                      </span>
+              /* All pillars — same photo + dark gradient treatment */
+              <Link
+                key={p.key}
+                href={p.href}
+                className="group relative bg-coal overflow-hidden block aspect-[3/4]"
+              >
+                <Image
+                  src={p.solid ? "/images/spa2.webp" : p.image}
+                  alt={p.solid ? "RFC recovery spa" : p.imageAlt}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+                  <div className="flex items-end justify-between">
+                    <div>
+                      <p className="font-display text-xl md:text-2xl text-off-white uppercase leading-none">
+                        {p.label}
+                      </p>
+                      <p className="font-body text-xs text-off-white mt-2 max-w-[180px] leading-relaxed">
+                        {p.line}
+                      </p>
                     </div>
+                    <span className="font-display text-accent text-xl group-hover:translate-x-1 transition-transform shrink-0 ml-3">
+                      →
+                    </span>
                   </div>
-                  <span className="absolute top-4 right-4 font-body text-xs uppercase tracking-widest text-off-white group-hover:text-off-white transition-colors">
-                    {p.label}
-                  </span>
-                </Link>
-              )
+                </div>
+                <span className="absolute top-4 right-4 font-body text-xs uppercase tracking-widest text-off-white group-hover:text-off-white transition-colors">
+                  {p.label}
+                </span>
+              </Link>
             )}
           </div>
         </section>
@@ -140,7 +109,7 @@ export default function HomePage() {
 
       {/* ── 3. Disciplines strip ────────────────────────────────────────── */}
       <FadeUp>
-        <section id="disciplines" className="bg-base border-t border-white/10 py-10 md:py-14 px-4 md:px-10 mt-10 md:mt-14">
+        <section id="disciplines" className="bg-coal border-t border-white/10 py-10 md:py-14 px-4 md:px-10 mt-10 md:mt-14">
           <div className="max-w-7xl mx-auto">
             <p className="font-body text-[10px] uppercase tracking-[0.35em] text-off-white mb-6">
               What we train
@@ -195,7 +164,7 @@ export default function HomePage() {
 
       {/* ── 5. Community band ───────────────────────────────────────────── */}
       <FadeUp>
-        <section id="community" className="bg-base py-10 md:py-14 px-4 md:px-10 border-t border-white/10">
+        <section id="community" className="bg-coal py-10 md:py-14 px-4 md:px-10 border-t border-white/10">
           <div className="max-w-7xl mx-auto mb-8">
             <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] text-off-white leading-none">
               {home.community.headline}
