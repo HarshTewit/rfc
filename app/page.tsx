@@ -1,101 +1,139 @@
-import Image from "next/image";
+import Link from "next/link";
+import ImagePlaceholder from "./components/ImagePlaceholder";
+import { home, wa, waLink } from "@/content/site";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      {/* ── 1. Hero ─────────────────────────────────────────────────────── */}
+      <section className="relative h-screen min-h-[600px] overflow-hidden flex items-end">
+        {/* background image slot */}
+        <ImagePlaceholder fill label="HERO PHOTO" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+        {/* grain */}
+        <div className="grain absolute inset-0 z-[2] pointer-events-none" />
+
+        {/* top vignette */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent z-[3]" />
+
+        {/* bottom vignette — text lives here */}
+        <div className="absolute inset-x-0 bottom-0 h-4/5 bg-gradient-to-t from-black via-black/80 to-transparent z-[3]" />
+
+        {/* content */}
+        <div className="relative z-10 w-full px-4 pb-12 md:pb-20 md:px-10 max-w-7xl mx-auto">
+          <h1 className="font-display text-[clamp(4.5rem,18vw,10rem)] leading-[0.88] text-off-white whitespace-pre-line">
+            {home.hero.headline}
+          </h1>
+          <p className="mt-5 font-body text-base md:text-lg text-off-white/70 max-w-md">
+            {home.hero.sub}
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href={home.hero.cta1.href}
+              className="inline-block bg-accent px-7 py-3 font-body text-sm uppercase tracking-widest text-off-white hover:bg-accent-hover transition-colors"
+            >
+              {home.hero.cta1.label}
+            </Link>
+            <Link
+              href={home.hero.cta2.href}
+              className="inline-block border border-off-white/40 px-7 py-3 font-body text-sm uppercase tracking-widest text-off-white hover:border-off-white hover:bg-white/5 transition-colors"
+            >
+              {home.hero.cta2.label}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 2. Pillars ──────────────────────────────────────────────────── */}
+      <section className="bg-base py-16 px-4 md:px-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/10">
+          {home.pillars.map((p) => (
+            <Link
+              key={p.key}
+              href={p.href}
+              className="group relative bg-base overflow-hidden block"
+            >
+              <ImagePlaceholder
+                label={p.imageLabel}
+                aspectRatio="aspect-[3/2]"
+              />
+              {/* overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 p-5">
+                <div className="flex items-end justify-between">
+                  <div>
+                    <p className="font-display text-xl text-off-white uppercase tracking-wide">
+                      {p.label}
+                    </p>
+                    <p className="font-body text-xs text-off-white/55 mt-1 max-w-[200px]">
+                      {p.line}
+                    </p>
+                  </div>
+                  <span className="font-display text-accent text-2xl group-hover:translate-x-1 transition-transform">
+                    →
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 3. Disciplines ──────────────────────────────────────────────── */}
+      <section className="border-t border-white/10 bg-base py-16 px-4 md:px-10">
+        <div className="max-w-7xl mx-auto">
+          <p className="font-body text-xs uppercase tracking-[0.3em] text-off-white/35 mb-10">
+            What we train
+          </p>
+          <ul className="space-y-0 divide-y divide-white/8">
+            {home.disciplines.map((d) => (
+              <li key={d}>
+                <span className="block font-display text-[clamp(2.5rem,8vw,6rem)] leading-none text-off-white/90 py-3 md:py-4 hover:text-accent transition-colors duration-150 cursor-default select-none">
+                  {d}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── 4. Stats ────────────────────────────────────────────────────── */}
+      <section className="border-t border-white/10 bg-surface py-14 px-4 md:px-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
+          {home.stats.map((s) => (
+            <div key={s.label} className="bg-surface py-10 px-6 text-center">
+              <span className="block font-display text-[3.5rem] md:text-[4.5rem] leading-none text-accent">
+                {s.value}
+              </span>
+              <span className="block font-body text-xs uppercase tracking-widest text-off-white/40 mt-3">
+                {s.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 5. CTA Band ─────────────────────────────────────────────────── */}
+      <section className="bg-accent py-20 px-4 md:px-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div>
+            <h2 className="font-display text-[clamp(2.5rem,7vw,5rem)] text-off-white leading-none">
+              {home.ctaBand.headline}
+            </h2>
+            <p className="font-body text-sm text-off-white/70 mt-3">
+              {home.ctaBand.sub}
+            </p>
+          </div>
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href={waLink(wa.messages.firstSession)}
             target="_blank"
             rel="noopener noreferrer"
+            className="shrink-0 inline-block bg-off-white text-base px-8 py-4 font-body text-sm uppercase tracking-widest hover:bg-off-white/90 transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+            {home.ctaBand.cta}
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+    </>
   );
 }
