@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Anton, Inter } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 
-const anton = Anton({
-  weight: "400",
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-anton",
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -18,17 +15,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://revivedfightclub.in"),
-  title: "Revive Fight Club | Bangalore Combat Sports",
+  title: "Revive Wellness Spa | Experience Calm, Discover Balance",
   description:
-    "Boxing, Muay Thai, BJJ and MMA training in Bangalore. Join RFC — the city's premier combat-sports gym.",
-  icons: { icon: "/favicon.svg" },
-  openGraph: {
-    title: "Revive Fight Club",
-    description: "Bangalore's premier combat-sports gym.",
-    images: [{ url: "/images/sparring-hero.webp" }],
-    type: "website",
-  },
+    "Welcome to Revive Wellness Spa, where your journey to tranquility begins. Reconnect with peace and embrace self-care.",
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({
@@ -37,11 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${anton.variable} ${inter.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="font-body flex min-h-dvh flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
