@@ -12,7 +12,8 @@
       "Bash(find /Users/harshit/Desktop/rfc/rfc-site/app -name \"*.tsx\" | xargs sed -i '' 's/text-off-white\\\\/[0-9][0-9]*/text-off-white/g')",
       "Bash(find /Users/harshit/Desktop/rfc/rfc-site/app -name \"*.tsx\" | xargs sed -i '' 's/bg-base/bg-coal/g')",
       "Bash(npx next:*)",
-      "Bash(ls /Users/harshit/Desktop/rfc/*.webp /Users/harshit/Desktop/rfc/*.jpg /Users/harshit/Desktop/rfc/*.png /Users/harshit/Desktop/rfc/*.jpeg /Users/harshit/Desktop/rfc/*.avif 2>/dev/null)"
+      "Bash(ls /Users/harshit/Desktop/rfc/*.webp /Users/harshit/Desktop/rfc/*.jpg /Users/harshit/Desktop/rfc/*.png /Users/harshit/Desktop/rfc/*.jpeg /Users/harshit/Desktop/rfc/*.avif 2>/dev/null)",
+      "Bash(npx vercel:*)"
     ]
   }
 }
