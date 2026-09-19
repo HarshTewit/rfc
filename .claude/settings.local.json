@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@14 rfc-site --typescript --tailwind --app --no-src-dir --no-eslint --import-alias \"@/*\" --use-npm 2>&1)",
+      "Bash(cd /Users/harshit/Desktop/rfc/rfc-site && npm run build 2>&1)",
+      "Bash(npm run:*)",
+      "Bash(ls /Users/harshit/Desktop/rfc && git -C /Users/harshit/Desktop/rfc status 2>&1 | head -5)",
+      "Bash(git -C /Users/harshit/Desktop/rfc/rfc-site log --oneline 2>&1 && git -C /Users/harshit/Desktop/rfc/rfc-site remote -v 2>&1)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(find /Users/harshit/Desktop/rfc/rfc-site/app -name \"*.tsx\" | xargs sed -i '' 's/text-off-white\\\\/[0-9][0-9]*/text-off-white/g')",
+      "Bash(find /Users/harshit/Desktop/rfc/rfc-site/app -name \"*.tsx\" | xargs sed -i '' 's/bg-base/bg-coal/g')",
+      "Bash(npx next:*)",
+      "Bash(ls /Users/harshit/Desktop/rfc/*.webp /Users/harshit/Desktop/rfc/*.jpg /Users/harshit/Desktop/rfc/*.png /Users/harshit/Desktop/rfc/*.jpeg /Users/harshit/Desktop/rfc/*.avif 2>/dev/null)"
+    ]
+  }
+}
