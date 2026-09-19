@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /Users/harshit/Desktop/rfc/rfc-site && npx next build 2>&1 | tail -30)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
