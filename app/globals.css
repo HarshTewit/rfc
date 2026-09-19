@@ -26,7 +26,7 @@
     outline-offset: 3px;
   }
 
-  [id] { scroll-margin-top: 64px; }
+  [id] { scroll-margin-top: 72px; }
 }
 
 @layer utilities {
@@ -35,8 +35,8 @@
   /* Fade-up animation */
   .fade-up {
     opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .fade-up.visible {
     opacity: 1;
@@ -48,11 +48,11 @@
 
   /* Ken Burns */
   @keyframes ken-burns {
-    from { transform: scale(1.06); }
+    from { transform: scale(1.08); }
     to   { transform: scale(1.0); }
   }
   .animate-ken-burns {
-    animation: ken-burns 14s ease-out forwards;
+    animation: ken-burns 18s ease-out forwards;
     will-change: transform;
   }
 
